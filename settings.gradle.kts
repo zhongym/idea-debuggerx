@@ -1,1 +1,1 @@
-rootProject.name = "debuggerX"
+rootProject.name = "DebuggerX"
