@@ -14,9 +14,11 @@
 - 强制返回任意值
 - 强制抛出异常
 - 自动执行表达式
-
-<img width="450" height="411" src="https://github.com/zhongym/idea-debuggerx/master/images/Force_return" >
-<img width="450" height="411" src="https://github.com/zhongym/idea-debuggerx/master/images/Throw_Exception.jpg" >
-<img width="450" height="411" src="https://github.com/zhongym/idea-debuggerx/master/images/Evaluate_Expression.jpg" >
-
 -----
+
+插件安装包：[DebuggerX-0.1.jar](release%2FDebuggerX-0.1.jar)
+
+### Usage：
+![Force_return.png](images%2FForce_return.png)
+![Throw_Exception.png](images%2FThrow_Exception.png)
+![Evaluate_Expression.png](images%2FEvaluate_Expression.png)
