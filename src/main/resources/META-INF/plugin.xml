@@ -1,0 +1,22 @@
+<!--suppress PluginXmlValidity, PluginXmlDynamicPlugin -->
+<idea-plugin>
+  <id>com.github.zhongym.debuggerx</id>
+  <name>DebuggerX</name>
+
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.java</depends>
+
+  <resource-bundle>messages.EnhancedDebuggerBundle</resource-bundle>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <ApplicationLoadListener
+        implementation="com.github.zhongym.debuggerx.EnhancedDebuggerApplicationLoadListener"
+    />
+    <debugger.javaBreakpointHandlerFactory
+        implementation="com.github.zhongym.debuggerx.java.EnhancedJavaLineBreakpointHandlerFactory"
+    />
+    <xdebugger.breakpointType
+        implementation="com.github.zhongym.debuggerx.java.EnhancedJavaLineBreakpointType"
+    />
+  </extensions>
+</idea-plugin>
