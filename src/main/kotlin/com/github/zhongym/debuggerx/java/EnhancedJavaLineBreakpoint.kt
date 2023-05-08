@@ -3,6 +3,7 @@ package com.github.zhongym.debuggerx.java
 import com.github.zhongym.debuggerx.EnhancedDebuggerBundle
 import com.github.zhongym.debuggerx.ForceType
 import com.intellij.debugger.engine.*
+import com.intellij.debugger.engine.evaluation.EvaluateException
 import com.intellij.debugger.engine.evaluation.TextWithImportsImpl
 import com.intellij.debugger.engine.events.SuspendContextCommandImpl
 import com.intellij.debugger.impl.DebuggerContextImpl
@@ -10,12 +11,18 @@ import com.intellij.debugger.impl.DebuggerUtilsEx
 import com.intellij.debugger.jdi.ThreadReferenceProxyImpl
 import com.intellij.debugger.settings.DebuggerSettings
 import com.intellij.debugger.ui.breakpoints.LineBreakpoint
+import com.intellij.notification.Notification
+import com.intellij.notification.NotificationAction
+import com.intellij.notification.NotificationType
+import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
+import com.intellij.openapi.util.text.HtmlBuilder
 import com.intellij.ui.AppUIUtil
 import com.intellij.xdebugger.XExpression
 import com.intellij.xdebugger.breakpoints.XBreakpoint
 import com.intellij.xdebugger.impl.breakpoints.XBreakpointBase
+import com.jetbrains.rd.util.getThrowableText
 import com.sun.jdi.Method
 import com.sun.jdi.ObjectReference
 import com.sun.jdi.Value
@@ -95,6 +102,7 @@ internal class EnhancedJavaLineBreakpoint(project: Project, xBreakpoint: XBreakp
     val exception = descriptor.evaluateException
 
     if (exception != null && descriptor.value == null) {
+      errorNotification(forceType, expression, exception)
       return
     }
 
@@ -107,6 +115,33 @@ internal class EnhancedJavaLineBreakpoint(project: Project, xBreakpoint: XBreakp
       ForceType.EVALUATE -> evaluate()
     }
   }
+
+  private fun errorNotification(
+    forceType: ForceType,
+    expression: XExpression,
+    exception: EvaluateException
+  ) {
+
+    val throwableText = exception.getThrowableText()
+    val message = HtmlBuilder()
+      .append("expression:")
+      .br()
+      .append(expression.expression)
+      .br()
+      .append("error details：")
+      .br()
+      .append(throwableText)
+      .toString()
+
+    Notification(
+      "debuggerx.notification",
+      "DebuggerX ERROR",
+      message,
+      NotificationType.ERROR
+    )
+      .notify(null)
+  }
+
 
   private fun evaluate() {
 

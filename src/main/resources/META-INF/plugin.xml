@@ -18,5 +18,8 @@
     <xdebugger.breakpointType
         implementation="com.github.zhongym.debuggerx.java.EnhancedJavaLineBreakpointType"
     />
+
+    <notificationGroup displayType="BALLOON" id="debuggerx.notification" isLogByDefault="true"/>
+
   </extensions>
 </idea-plugin>
