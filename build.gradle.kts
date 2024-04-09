@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "com.github.lppedd"
-version = "0.1"
+version = "0.2"
 
 repositories {
   mavenCentral()
@@ -23,8 +23,8 @@ dependencies {
 }
 
 intellij {
-  version.set("IU-231.8770.65")
-  downloadSources.set(true)
+  version.set("IU-241.14494.240")
+  downloadSources.set(false)
   plugins.set(listOf("java"))
 }
 

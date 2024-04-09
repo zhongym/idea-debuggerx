@@ -22,7 +22,7 @@ import java.nio.file.Path
 @Suppress("UnstableApiUsage")
 internal class EnhancedDebuggerApplicationLoadListener : ApplicationLoadListener {
 
-  override fun beforeApplicationLoaded(application: Application, configPath: Path) {
+  override suspend fun beforeApplicationLoaded(application: Application, configPath: Path) {
     @Suppress("deprecation")
     XBreakpointType.EXTENSION_POINT_NAME.getPoint(null).unregisterExtension(JavaLineBreakpointType::class.java)
     application.messageBus.connect(application).subscribe(ProjectManager.TOPIC, MyProjectManagerListener())

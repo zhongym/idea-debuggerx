@@ -58,7 +58,7 @@ internal class EnhancedJavaLineBreakpoint(project: Project, xBreakpoint: XBreakp
       suspendContext.initExecutionStacks(suspendContext.thread)
 
       val proxy = suspendContext.frameProxy!!
-      val javaStackFrame = suspendContext.activeExecutionStack!!.createStackFrame(proxy) as JavaStackFrame
+      val javaStackFrame = suspendContext.activeExecutionStack!!.createStackFrames(proxy).get(0) as JavaStackFrame
       val isEnabled = properties.isEnabled(breakpoint)
       val expression = properties.getExpression(breakpoint)
 

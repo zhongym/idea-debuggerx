@@ -1,6 +1,7 @@
 # DebuggerX
 
-<small>支持IDE版本: `2023.*`</small>
+<small>0.1版本支持IDE版本: `2023.*`</small>
+<small>0.2版本支持IDE版本: `2024.*`</small>
 
 -----
 基于[debugger-enhancer](https://github.com/lppedd/idea-debugger-enhancer)插件进行修改。

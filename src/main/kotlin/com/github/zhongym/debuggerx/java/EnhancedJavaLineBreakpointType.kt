@@ -80,7 +80,7 @@ internal class EnhancedJavaLineBreakpointType :
       val delegateProperties = delegate.createProperties()
 
       if (properties != null && delegateProperties != null) {
-        properties.lambdaOrdinal = delegateProperties.lambdaOrdinal
+        properties.encodedInlinePosition = delegateProperties.encodedInlinePosition
       }
 
       return properties
