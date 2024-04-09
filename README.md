@@ -1,6 +1,7 @@
 # DebuggerX
 
 <small>0.1版本支持IDE版本: `2023.*`</small>
+<br/>
 <small>0.2版本支持IDE版本: `2024.*`</small>
 
 -----
@@ -18,6 +19,8 @@
 -----
 
 插件安装包：[DebuggerX-0.1.jar](release%2FDebuggerX-0.1.jar)
+<br/>
+插件安装包：[DebuggerX-0.2.jar](release%2FDebuggerX-0.2.jar)
 
 ### Usage：
 ![Force_return.png](images%2FForce_return.png)
